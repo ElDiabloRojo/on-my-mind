@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/ElDiabloRojo/on-my-mind/issues"
   },
-  "homepage": "https://github.com/ElDiabloRojo/on-my-mind#readme"
+  "homepage": "https://github.com/ElDiabloRojo/on-my-mind#readme",
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "react-router-dom": "^6.1.1"
+  }
 }
