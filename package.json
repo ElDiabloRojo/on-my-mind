@@ -1,0 +1,19 @@
+{
+  "name": "on-my-mind",
+  "version": "1.0.0",
+  "description": "What's on your mind?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElDiabloRojo/on-my-mind.git"
+  },
+  "author": "holden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ElDiabloRojo/on-my-mind/issues"
+  },
+  "homepage": "https://github.com/ElDiabloRojo/on-my-mind#readme"
+}
