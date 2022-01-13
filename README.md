@@ -1,7 +1,3 @@
-# On my Mind
-The intention of this project is to achieve a simple platform to record
-thoughts and feelings along a timeline. 
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
