@@ -1,15 +1,23 @@
-version: '3.7'
+version: '3.1'
+
+# Usage:
+#   docker stack deploy -c stack.yml mongo (or docker-compose -f stack.yml up)
+
 services:
-  mongodb_container:
+
+  mongo:
     image: mongo:latest
+    restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: rootpassword
-      MONGO_INITDB_DATABASE: reactdb
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: omm
+    volumes:
+      - mongodb_master_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     ports:
       - 27017:27017
-    volumes:
-      - mongodb_data_container:/data/db
 
 volumes:
-  mongodb_data_container:
+  mongodb_master_data:
+    driver: local
