@@ -2,12 +2,12 @@ let mongoose = require('mongoose'),
   express = require('express'),
   router = express.Router()
 
-// Student Model
-let studentSchema = require('../models/Student')
+// Thought Model
+let thoughtSchema = require('../models/Thought')
 
-// CREATE Student
-router.route('/create-student').post((req, res, next) => {
-  studentSchema.create(req.body, (error, data) => {
+// CREATE Thought
+router.route('/create-thought').post((req, res, next) => {
+  thoughtSchema.create(req.body, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -17,9 +17,9 @@ router.route('/create-student').post((req, res, next) => {
   })
 })
 
-// READ Students
+// READ Thought
 router.route('/').get((req, res) => {
-  studentSchema.find((error, data) => {
+  thoughtSchema.find((error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -28,9 +28,9 @@ router.route('/').get((req, res) => {
   })
 })
 
-// Get Single Student
-router.route('/edit-student/:id').get((req, res) => {
-  studentSchema.findById(req.params.id, (error, data) => {
+// Get Single Thought
+router.route('/edit-thought/:id').get((req, res) => {
+  thoughtSchema.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -39,9 +39,9 @@ router.route('/edit-student/:id').get((req, res) => {
   })
 })
 
-// Update Student
-router.route('/update-student/:id').put((req, res, next) => {
-  studentSchema.findByIdAndUpdate(
+// Update Thought
+router.route('/update-thought/:id').put((req, res, next) => {
+  thoughtSchema.findByIdAndUpdate(
     req.params.id,
     {
       $set: req.body,
@@ -52,15 +52,15 @@ router.route('/update-student/:id').put((req, res, next) => {
         console.log(error)
       } else {
         res.json(data)
-        console.log('Student updated successfully !')
+        console.log('Thought updated successfully!')
       }
     },
   )
 })
 
-// Delete Student
-router.route('/delete-student/:id').delete((req, res, next) => {
-  studentSchema.findByIdAndRemove(req.params.id, (error, data) => {
+// Delete Thought
+router.route('/delete-thought/:id').delete((req, res, next) => {
+  thoughtSchema.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error)
     } else {
