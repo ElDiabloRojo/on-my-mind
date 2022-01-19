@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let thoughtSchema = new Schema({
-  thought: {
+  content: {
     type: String
   },
   feeling: {
