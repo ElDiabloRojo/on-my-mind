@@ -1,3 +1,6 @@
-# On my Mind
-The intention of this project is to achieve a simple platform to record
-thoughts and feelings along a timeline. 
+# Useful commands
+
+* Clear out local mongo container.
+```
+docker ps -a | grep mongo | awk '{print $1}' | xargs docker rm && docker volume rm on-my-mind_mongodb_master_data;
+```
