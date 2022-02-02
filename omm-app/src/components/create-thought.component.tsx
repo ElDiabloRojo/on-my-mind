@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-import 'emoji-mart/css/emoji-mart.css'
-import { EmojiData, BaseEmoji, Picker } from 'emoji-mart'
+import "emoji-mart/css/emoji-mart.css";
+import { BaseEmoji, Picker } from "emoji-mart";
 
 type Props = {};
 
@@ -35,7 +35,6 @@ export default class CreateThought extends Component<Props, State> {
   }
 
   onChangeThoughtFeeling(e: BaseEmoji) {
-
     console.log("DEBUG: print event type for on change ", typeof e);
 
     this.setState({ feeling: e.native, showPicker: false });
@@ -59,9 +58,26 @@ export default class CreateThought extends Component<Props, State> {
 
   renderFeeling() {
     if (this.state.showPicker) {
-      return <Picker title='How does it feel?' emoji='point_up' showPreview={false} onSelect={this.onChangeThoughtFeeling}/>
+      return (
+        <Picker
+          title="How does it feel?"
+          emoji="point_up"
+          showPreview={false}
+          onSelect={this.onChangeThoughtFeeling}
+        />
+      );
     }
-    return <Button variant="danger" size="lg" type="submit" className="mt-4" onClick={()=>this.setState({showPicker: true})}>{this.state.feeling}</Button>
+    return (
+      <Button
+        variant="danger"
+        size="lg"
+        type="submit"
+        className="mt-4"
+        onClick={() => this.setState({ showPicker: true })}
+      >
+        {this.state.feeling}
+      </Button>
+    );
   }
 
   render() {
