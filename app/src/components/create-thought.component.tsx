@@ -11,6 +11,7 @@ type State = {
   content: string;
   feeling: string;
   showPicker: boolean;
+  img: string;
 };
 
 export default class CreateThought extends Component<Props, State> {
@@ -27,7 +28,18 @@ export default class CreateThought extends Component<Props, State> {
       content: "",
       feeling: "👺",
       showPicker: false,
+      img: "",
     };
+
+  }
+
+  fetchInspiration() {
+    axios
+      .get("http://localhost:4000/inspiration/get-inspiration")
+      .then((res) => {
+        this.setState({ img: res.data });
+        console.log(res.data);
+      });
   }
 
   onChangeThoughtContent(e: React.ChangeEvent<HTMLInputElement>) {
@@ -52,6 +64,8 @@ export default class CreateThought extends Component<Props, State> {
     axios
       .post("http://localhost:4000/thoughts/create-thought", thoughtObject)
       .then((res) => console.log(res.data));
+
+    this.fetchInspiration();
 
     this.setState({ content: "", feeling: "👺" });
   }
@@ -101,6 +115,7 @@ export default class CreateThought extends Component<Props, State> {
             Contemplate
           </Button>
         </Form>
+        {this.state.img ? <img src={this.state.img} alt="Inspiration!" /> : null}
       </div>
     );
   }

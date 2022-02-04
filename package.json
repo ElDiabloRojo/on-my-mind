@@ -1,0 +1,39 @@
+{
+  "name": "on-my-mind",
+  "version": "1.0.0",
+  "description": "* Clear out local mongo container. ``` docker ps -a | grep mongo | awk '{print $1}' | xargs docker rm && docker volume rm on-my-mind_mongodb_master_data; ```",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build"
+  },
+  "turbo": {
+    "pipeline": {
+      "dev": {
+        "cache": false
+      },
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          ".next/**",
+          "dist/**"
+        ]
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElDiabloRojo/on-my-mind.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElDiabloRojo/on-my-mind/issues"
+  },
+  "homepage": "https://github.com/ElDiabloRojo/on-my-mind#readme",
+  "devDependencies": {
+    "turbo": "^1.1.2"
+  }
+}

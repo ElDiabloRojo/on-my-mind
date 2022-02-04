@@ -6,6 +6,7 @@ let dbConfig = require('./database/db')
 
 // Express Route
 const thoughtRoute = require('./routes/thought.route')
+const inspirationRoute = require('./routes/inspiration.route')
 
 // Connecting mongoDB Database
 mongoose.Promise = global.Promise
@@ -31,6 +32,7 @@ app.use(
 )
 app.use(cors())
 app.use('/thoughts', thoughtRoute)
+app.use('/inspiration', inspirationRoute)
 
 // PORT
 const port = process.env.PORT || 4000
@@ -38,10 +40,10 @@ const server = app.listen(port, () => {
   console.log('Connected to port ' + port)
 })
 
-// 404 Error
-app.use((req, res, next) => {
-  next(createError(404))
-})
+// // 404 Error
+// app.use((req, res, next) => {
+//   next(createError(404))
+// })
 
 app.use(function (err, req, res, next) {
   console.error(err.message)
