@@ -2,7 +2,6 @@
   "name": "on-my-mind",
   "version": "1.0.0",
   "description": "* Clear out local mongo container. ``` docker ps -a | grep mongo | awk '{print $1}' | xargs docker rm && docker volume rm on-my-mind_mongodb_master_data; ```",
-  "main": "mongo-init.js",
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build"
